@@ -8,7 +8,7 @@ import { Competition } from '../interfaces';
 export class CompetitionService {
   private competititonApi: string;
   constructor(private _http: HttpClient) {
-    this.competititonApi = 'http://api.football-data.org/v2/competitions';
+    this.competititonApi = 'https://api.football-data.org/v2/competitions';
   }
 
   getCompetitions(filter = '', limit = 10, offset = 0): Observable<Competition[]> {

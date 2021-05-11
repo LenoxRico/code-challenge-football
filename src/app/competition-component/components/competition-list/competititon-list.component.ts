@@ -16,7 +16,7 @@ import { CompetitionModalComponent } from '../competition-modal';
   styleUrls: ['./competition-list.component.scss'],
 })
 export class CompetitionListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'favorite'];
+  displayedColumns: string[] = ['name', 'countryCode'];
   dataSource: any;
   public pageSize = 5;
   public currentPage = 0;
@@ -38,7 +38,7 @@ export class CompetitionListComponent implements OnInit {
     this._competitionService
       .getCompetitions(filter, limit, offset)
       .subscribe((response: any) => {
-        const data = response.results;
+        const data = response.competitions;
         data.length = response.count;
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;

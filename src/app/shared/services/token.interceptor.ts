@@ -19,9 +19,12 @@ export class TokenInterceptor implements HttpInterceptor {
     if (!request.headers.has('Accept')) {
       formattedRequest = request.clone({
         headers: request.headers
-          .set('Accept', 'application/json, text/plain, */*')
-          .set('Content-Type', 'application/json; charset=utf-8')
-          .set('Access-Control-Allow-Origin', '*'),
+        .set('Accept', 'application/json, text/plain, */*')
+        .set('Content-Type', 'application/json; charset=utf-8')
+        .set('Access-Control-Allow-Origin', '*')
+        .set("Access-Control-Allow-Credentials", "true")
+        // .set("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT")
+        .set("Access-Control-Allow-Headers", "*")
       });
     }
     return next.handle(formattedRequest);
