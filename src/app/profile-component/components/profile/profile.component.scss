@@ -1,0 +1,35 @@
+.container-list {
+  min-width: 50%;
+  .header {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  &__table {
+    width: 90%;
+    table {
+      th {
+        color: #2e6ead;
+        font-weight: bold;
+      }
+      td {
+        button {
+          padding: 0;
+          width: 100%;
+          text-align: left;
+          img {
+            max-width: 20px;
+            height: auto;
+            margin-right: 10px;
+          }
+        }
+        &:hover {
+          background: rgba(#2e6ead, 1);
+          color: #ffffff;
+        }
+      }
+    }
+    &--icon {
+      color: #673ab7;
+    }
+  }
+}

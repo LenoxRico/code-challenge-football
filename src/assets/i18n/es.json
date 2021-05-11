@@ -1,0 +1,48 @@
+{
+  "alternative": {
+    "not-found": {
+      "text": "La página que busca no ha sido encontrada.",
+      "button": "Volver"
+    }
+  },
+  "competition-component": {
+    "competition-list": {
+      "title": "Lista de Competencias",
+      "table-header-name": "Nombre",
+      "table-header-favorite": "Favorito"
+    },
+    "competition-modal": {
+      "title": "Detalle de Competencia",
+      "name": "Nombre",
+      "move": "Movimientos",
+      "type": "Tipo",
+      "stats": "Estadisticas",
+      "stay": "Usualmente se encuentra en",
+      "button-cancel": "Cerrar"
+    }
+  },
+  "favorite-component": {
+    "favorite-list": {
+      "title": "Lista de Favoritos",
+      "empty": "No hay lista de Favoritos"
+    }
+  },
+  "login": {
+    "title": "Iniciar Sesión",
+    "user": "Usuario",
+    "password": "Contraseña",
+    "button-login": "Iniciar Sesión"
+  },
+  "shared": {
+    "nav-bar": {
+      "list": "Lista de Competencias",
+      "favs": "Favoritos",
+      "profile": "Perfil",
+      "log-out": "Cerrar Sesión"
+    },
+    "notification": {
+      "success-login": "¡Bienvenido!",
+      "error-login": "Lo sentimos, las credenciales son invalidas!"
+    }
+  }
+}

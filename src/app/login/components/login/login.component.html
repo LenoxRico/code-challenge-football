@@ -1,0 +1,47 @@
+<div class="main-login" fxLayout="column" fxLayoutAlign="center center">
+  <!-- <img [src]="src" alt="Main Logo" /> -->
+  <mat-card class="container-login mat-elevation-z8">
+    <div class="header">
+      <h2>{{ "login.title" | translate }}</h2>
+    </div>
+    <mat-card-content
+      fxLayout="column"
+      fxLayoutGap="25px"
+      fxLayoutAlign="center center"
+    >
+      <form
+        [formGroup]="itemForm"
+        (ngSubmit)="login()"
+        fxLayout="column"
+        fxLayoutGap="25px"
+        fxLayoutAlign="center center"
+        class="container-login__form"
+      >
+        <mat-form-field class="container-login__input">
+          <input
+            id="user"
+            matInput
+            placeholder="{{ 'login.user' | translate }}"
+            type="text"
+            required
+            formControlName="userName"
+          />
+        </mat-form-field>
+        <mat-form-field class="container-login__input">
+          <input
+            id="password"
+            matInput
+            class="password-input"
+            placeholder="{{ 'login.password' | translate }}"
+            type="password"
+            required
+            formControlName="password"
+          />
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">
+          {{ "login.button-login" | translate }}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

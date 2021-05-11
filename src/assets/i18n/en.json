@@ -1,0 +1,48 @@
+{
+  "alternative": {
+    "not-found": {
+      "text": "The page was not found.",
+      "button": "Go Back"
+    }
+  },
+  "competition-component": {
+    "competition-list": {
+      "title": "Competition List",
+      "table-header-name": "Name",
+      "table-header-favorite": "Favorite"
+    },
+    "competition-modal": {
+      "title": "Competition Detail",
+      "name": "Name",
+      "move": "Moves",
+      "type": "Type",
+      "stats": "Stats",
+      "stay": "Where usually find",
+      "button-cancel": "Close"
+    }
+  },
+  "favorite-component": {
+    "favorite-list": {
+      "title": "Favorites List",
+      "empty": "There's no favorites"
+    }
+  },
+  "login": {
+    "title": "Login",
+    "user": "User",
+    "password": "Password",
+    "button-login": "Login"
+  },
+  "shared": {
+    "nav-bar": {
+      "list": "Competition List",
+      "favs": "Favorites",
+      "profile": "Profile",
+      "log-out": "Log Out"
+    },
+    "notification": {
+      "success-login": "Welcome!",
+      "error-login": "Sorry, Invalid credentials!"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  .success-snackbar {
+    background: rgba(green, 0.8) !important;
+    p {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .error-snackbar {
+    background: rgba(red, 0.8) !important;
+    p {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  tbody tr {
+    &:hover {
+      background: rgba(#2e6ead, 1);
+      td,
+      th {
+        color: #ffffff;
+      }
+    }
+  }
+}

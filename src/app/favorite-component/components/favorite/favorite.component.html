@@ -1,0 +1,68 @@
+<app-nav-bar></app-nav-bar>
+<div
+  class="competition-card"
+  fxLayout="column"
+  fxLayoutGap="25px"
+  fxLayoutAlign="center center"
+>
+  <div></div>
+  <mat-card class="container-list mat-elevation-z8">
+    <div class="header">
+      <h2>{{ "favorite-component.favorite-list.title" | translate }}</h2>
+    </div>
+    <mat-card-content
+      class="competition-container"
+      fxLayout="column"
+      fxLayoutGap="25px"
+      fxLayoutAlign="center center"
+    >
+      <div class="container-list__table" fxLayout="column" fxLayoutGap="25px">
+        <table mat-table [dataSource]="dataSource">
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>
+              {{
+                "competition-component.competition-list.table-header-name" | translate
+              }}
+            </th>
+            <td mat-cell *matCellDef="let competition">
+              <button mat-button (click)="openDialog(competition)" *ngIf="competition">
+                <img [src]="src" [alt]="competition.name" />
+                <span>{{ competition | titlecase }}</span>
+              </button>
+            </td>
+          </ng-container>
+          <!-- Favs Column -->
+          <ng-container matColumnDef="favorite">
+            <th mat-header-cell *matHeaderCellDef>
+              {{
+                "competition-component.competition-list.table-header-favorite"
+                  | translate
+              }}
+            </th>
+            <td mat-cell *matCellDef="let competition">
+              <button
+                mat-button
+                (click)="removeFavorite(competition)"
+                *ngIf="competition"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+      <mat-paginator
+        #paginator
+        [pageSizeOptions]="[5, 10, 50]"
+        [showFirstLastButtons]="false"
+        [hidePageSize]="true"
+        [pageIndex]="currentPage"
+        [pageSize]="pageSize"
+      ></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>
