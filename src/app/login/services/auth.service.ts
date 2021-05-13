@@ -8,7 +8,7 @@ import { of, throwError } from 'rxjs';
 export class AuthService {
   private validUsers: Array<string>;
   constructor(private _router: Router, private _http: HttpClient) {
-    this.validUsers = ['user1', 'user2'];
+    this.validUsers = ['admin', 'test'];
   }
 
   obtainAccessToken(loginData) {
@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   checkCredentials() {
-    return true//Cookie.check('access_token') ? true : false;
+    return Cookie.check('access_token') ? true : false;
   }
 
   logout() {

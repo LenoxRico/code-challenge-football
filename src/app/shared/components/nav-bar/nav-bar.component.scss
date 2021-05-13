@@ -1,14 +1,17 @@
 .navbar {
   display: flex;
   flex-direction: row;
+  max-height: 100px;
   &__options {
     width: calc(100% - 100px);
     background: rgba(#444, 1);
-    box-shadow: 0px 5px 5px -3px rgb(255 255 255 / 20%), 0px 8px 10px 1px rgb(255 255 255 / 14%), 0px 3px 14px 2px rgb(255 255 255 / 12%);
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%),
+      0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
     padding: 0 50px;
     margin: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     font-family: "Raleway", sans-serif;
     button,
@@ -19,6 +22,28 @@
   img {
     width: 100px;
     height: auto;
-    box-shadow: 0px 5px 5px -3px rgb(255 255 255 / 20%), 0px 8px 10px 1px rgb(255 255 255 / 14%), 0px 3px 14px 2px rgb(255 255 255 / 12%);
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%),
+      0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+  }
+}
+
+@media (max-width: 750px) {
+  .navbar__options {
+    padding: 0;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 650px) {
+  .navbar__options {
+    mat-form-field,
+    button {
+      height: 40px;
+    }
+    ::ng-deep .mat-form-field-wrapper {
+      max-width: 100px;
+    }
+    .hide {
+      display: none;
+    }
   }
 }

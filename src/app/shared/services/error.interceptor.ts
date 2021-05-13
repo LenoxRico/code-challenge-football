@@ -27,11 +27,18 @@ export class ErrorIntercept implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse | any) => {
         const errorMessage = error?.message;
-        if (error.status === 404) {
-          this._router.navigate(['/not-found']);
-        }
-        if (error.status === 401) {
-          this._router.navigate(['/no-auth']);
+        switch (error.status) {
+          case 404:
+            this._router.navigate(['/not-found']);
+            break;
+          case 401:
+            this._router.navigate(['/no-auth']);
+            break;
+          case 403:
+            this._router.navigate(['/competition-list']);
+            break;
+          default:
+            break;
         }
         this._coreServices.displaySpinner(false);
         this._notificationService.showNotification(errorMessage, false);

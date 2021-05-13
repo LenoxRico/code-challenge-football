@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { FavoriteComponent } from './favorite.component';
+import { CompetitionDetailComponent } from './competition-detail.component';
 
-describe('FavoriteComponent', () => {
-  let component: FavoriteComponent;
-  let fixture: ComponentFixture<FavoriteComponent>;
+describe('CompetitionDetailComponent', () => {
+  let component: CompetitionDetailComponent;
+  let fixture: ComponentFixture<CompetitionDetailComponent>;
 
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [FavoriteComponent],
+        declarations: [CompetitionDetailComponent],
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FavoriteComponent);
+    fixture = TestBed.createComponent(CompetitionDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

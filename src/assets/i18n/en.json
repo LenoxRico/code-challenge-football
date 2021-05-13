@@ -9,22 +9,27 @@
     "competition-list": {
       "title": "Competition List",
       "table-header-name": "Name",
-      "table-header-favorite": "Favorite"
+      "table-header-location": "Location",
+      "year": "Choose Season Year"
     },
-    "competition-modal": {
+    "competition-detail": {
       "title": "Competition Detail",
       "name": "Name",
-      "move": "Moves",
-      "type": "Type",
-      "stats": "Stats",
-      "stay": "Where usually find",
-      "button-cancel": "Close"
-    }
-  },
-  "favorite-component": {
-    "favorite-list": {
-      "title": "Favorites List",
-      "empty": "There's no favorites"
+      "currentSeason": "Current Season",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "area": "Area",
+      "plan": "Plan",
+      "currentMatchday": "Current Matchday",
+      "seasons": "Seasons",
+      "code": "Code",
+      "team": "Show Team"
+    },
+    "competition-modal": {
+      "title": "Team List ",
+      "clubColors": "Club Colors",
+      "phone": "Phone",
+      "website": "Website"
     }
   },
   "login": {
@@ -36,8 +41,6 @@
   "shared": {
     "nav-bar": {
       "list": "Competition List",
-      "favs": "Favorites",
-      "profile": "Profile",
       "log-out": "Log Out"
     },
     "notification": {

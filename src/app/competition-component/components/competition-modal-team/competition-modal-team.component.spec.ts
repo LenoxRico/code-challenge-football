@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ProfileComponent } from './profile.component';
+import { CompetitionModalTeamComponent } from './competition-modal-team.component';
 
-describe('ProfileComponent', () => {
-  let component: ProfileComponent;
-  let fixture: ComponentFixture<ProfileComponent>;
+describe('CompetitionModalTeamComponent', () => {
+  let component: CompetitionModalTeamComponent;
+  let fixture: ComponentFixture<CompetitionModalTeamComponent>;
 
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [ProfileComponent],
+        declarations: [CompetitionModalTeamComponent],
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfileComponent);
+    fixture = TestBed.createComponent(CompetitionModalTeamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

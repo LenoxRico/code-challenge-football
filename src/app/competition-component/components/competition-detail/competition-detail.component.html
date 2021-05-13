@@ -1,0 +1,121 @@
+<app-nav-bar></app-nav-bar>
+<ng-container *ngIf="competition">
+  <h1 class="header" mat-dialog-title>
+    {{ "competition-component.competition-detail.title" | translate }}
+  </h1>
+  <div class="container-list" xLayout.xs="column" fxLayout="row">
+    <mat-card class="mat-elevation-z8">
+      <div fxLayout="column">
+        <h3 class="bold">
+          {{ "competition-component.competition-detail.name" | translate }}:
+          <span>{{ competition.name | titlecase }}</span>
+        </h3>
+      </div>
+
+      <div fxLayout="column">
+        <h3 class="bold">
+          {{
+            "competition-component.competition-detail.currentSeason" | translate
+          }}
+        </h3>
+        <p>
+          <span
+            >{{
+              "competition-component.competition-detail.startDate" | translate
+            }}:</span
+          >
+          {{ competition.currentSeason.startDate }}
+        </p>
+        <p>
+          <span
+            >{{
+              "competition-component.competition-detail.endDate" | translate
+            }}:</span
+          >
+          {{ competition.currentSeason.endDate }}
+        </p>
+      </div>
+
+      <div fxLayout="column">
+        <h3 class="bold">
+          {{ "competition-component.competition-detail.area" | translate }}:
+          <span>
+            {{ competition.area.name | titlecase }}
+          </span>
+        </h3>
+        <p>
+          <span
+            >{{
+              "competition-component.competition-detail.code" | translate
+            }}:</span
+          >
+          {{ competition.code | titlecase }}
+        </p>
+        <p>
+          <span
+            >{{
+              "competition-component.competition-detail.plan" | translate
+            }}:</span
+          >
+          {{ competition.plan | titlecase }}
+        </p>
+      </div>
+
+      <div fxLayout="column">
+        <button (click)="openDialog(competition)">
+          {{ "competition-component.competition-detail.team" | translate }}
+        </button>
+      </div>
+    </mat-card>
+    <mat-card class="mat-elevation-z8">
+      <div fxLayout="column">
+        <h3 class="bold">
+          {{ "competition-component.competition-detail.seasons" | translate }}:
+        </h3>
+      </div>
+
+      <div fxLayout="column">
+        <div class="container-list__table" fxLayout="column" fxLayoutGap="25px">
+          <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="currentMatchday">
+              <th mat-header-cell *matHeaderCellDef>
+                {{
+                  "competition-component.competition-detail.currentMatchday"
+                    | translate
+                }}
+              </th>
+              <td mat-cell *matCellDef="let competition">
+                <span *ngIf="competition">{{
+                  competition.currentMatchday
+                }}</span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="startDate">
+              <th mat-header-cell *matHeaderCellDef>
+                {{
+                  "competition-component.competition-detail.startDate"
+                    | translate
+                }}
+              </th>
+              <td mat-cell *matCellDef="let competition">
+                <span *ngIf="competition">{{ competition.startDate }}</span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="endDate">
+              <th mat-header-cell *matHeaderCellDef>
+                {{
+                  "competition-component.competition-detail.endDate" | translate
+                }}
+              </th>
+              <td mat-cell *matCellDef="let competition">
+                <span *ngIf="competition">{{ competition.endDate }}</span>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</ng-container>

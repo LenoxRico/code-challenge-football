@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NoAuthComponent, NotFoundComponent } from './alternative/components';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'competition-list', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'login',
     loadChildren: () =>
@@ -15,20 +15,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./competition-component/modules/competition.module').then(
         (m) => m.CompetitionModule
-      ),
-  },
-  {
-    path: 'profile',
-    loadChildren: () =>
-      import('./profile-component/modules/profile.module').then(
-        (m) => m.ProfileModule
-      ),
-  },
-  {
-    path: 'favorite',
-    loadChildren: () =>
-      import('./favorite-component/modules/favorite.module').then(
-        (m) => m.FavoriteModule
       ),
   },
   { path: 'no-auth', component: NoAuthComponent },

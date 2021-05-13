@@ -16,6 +16,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 
 const modules = [
   MatButtonModule,
@@ -35,6 +37,9 @@ const modules = [
   MatButtonToggleModule,
   MatSelectModule,
   MatPaginatorModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatRippleModule,
 ];
 @NgModule({
   imports: modules,

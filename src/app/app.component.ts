@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Cookie } from 'ng2-cookies';
-
 import { DefaultLanguage } from './shared/interfaces';
 import { CoreService } from './shared/services';
 

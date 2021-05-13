@@ -1,9 +1,22 @@
+export interface CompetitionResponse {
+  count: number;
+  filters: any;
+  competitions: Competition[];
+}
 export interface Competition {
+  id: number;
+  area: any;
   name: string;
-  url: string;
-  moves?: any;
-  types?: any;
-  stats?: any;
-  location_area_encounters?: any;
-  sprites?: any;
+  code: string;
+  plan: string;
+  currentSeason: Season;
+  numberOfAvailableSeasons: number;
+  lastUpdated: string;
+}
+
+export interface Season {
+  id: number;
+  startDate: string;
+  endDate: string;
+  currentMatchday: string;
 }

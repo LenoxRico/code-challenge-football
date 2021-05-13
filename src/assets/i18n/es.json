@@ -9,22 +9,27 @@
     "competition-list": {
       "title": "Lista de Competencias",
       "table-header-name": "Nombre",
-      "table-header-favorite": "Favorito"
+      "table-header-location": "Ubicación",
+      "year": "Seleccione el año de la temporada"
     },
-    "competition-modal": {
+    "competition-detail": {
       "title": "Detalle de Competencia",
       "name": "Nombre",
-      "move": "Movimientos",
-      "type": "Tipo",
-      "stats": "Estadisticas",
-      "stay": "Usualmente se encuentra en",
-      "button-cancel": "Cerrar"
-    }
-  },
-  "favorite-component": {
-    "favorite-list": {
-      "title": "Lista de Favoritos",
-      "empty": "No hay lista de Favoritos"
+      "currentSeason": "Temporada Actual",
+      "startDate": "Fecha Inicio",
+      "endDate": "Fecha Final",
+      "area": "Area",
+      "plan": "Plan",
+      "currentMatchday": "Jornada Actual",
+      "seasons": "Temporadas",
+      "code": "Código",
+      "team": "Mostrar Equipo"
+    },
+    "competition-modal": {
+      "title": "Lista de Equipos",
+      "clubColors": "Colores del Club",
+      "phone": "Telefono",
+      "website": "Website"
     }
   },
   "login": {
@@ -36,8 +41,6 @@
   "shared": {
     "nav-bar": {
       "list": "Lista de Competencias",
-      "favs": "Favoritos",
-      "profile": "Perfil",
       "log-out": "Cerrar Sesión"
     },
     "notification": {

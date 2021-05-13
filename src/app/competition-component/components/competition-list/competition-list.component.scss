@@ -1,14 +1,17 @@
-.competition-card{
+.competition-card {
   height: calc(100% - 100px);
 }
 .container-list {
-  min-width: 50%;
+  min-width: 80%;
   .header {
     text-align: center;
     font-family: "Montserrat", sans-serif;
   }
+  ::ng-deep .mat-form-field-flex {
+    background: transparent;
+  }
   &__table {
-    width: 90%;
+    width: 100%;
     table {
       th {
         color: #2e6ead;
@@ -29,8 +32,14 @@
         }
       }
     }
-    &--icon {
-      color: #673ab7;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container-list {
+    min-width: 80%;
+    mat-form-field {
+      width: 100%;
     }
   }
 }

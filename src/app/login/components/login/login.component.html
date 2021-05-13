@@ -1,5 +1,5 @@
 <div class="main-login" fxLayout="column" fxLayoutAlign="center center">
-  <!-- <img [src]="src" alt="Main Logo" /> -->
+  <div class="layout"></div>
   <mat-card class="container-login mat-elevation-z8">
     <div class="header">
       <h2>{{ "login.title" | translate }}</h2>
@@ -27,7 +27,7 @@
             formControlName="userName"
           />
         </mat-form-field>
-        <mat-form-field class="container-login__input">
+        <!-- <mat-form-field class="container-login__input">
           <input
             id="password"
             matInput
@@ -37,7 +37,7 @@
             required
             formControlName="password"
           />
-        </mat-form-field>
+        </mat-form-field> -->
         <button mat-raised-button color="primary" type="submit">
           {{ "login.button-login" | translate }}
         </button>

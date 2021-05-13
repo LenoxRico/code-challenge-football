@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         Validators.required,
         Validators.minLength(5),
       ]),
-      password: new FormControl('', Validators.required),
+      // password: new FormControl('', Validators.required),
     });
   }
 
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     this._route.queryParams.subscribe((params) => {
       if (params.username) {
         this.itemForm.controls.userName.setValue(params.username);
-        this.itemForm.controls.password.setValue(params.username);
+        // this.itemForm.controls.password.setValue(params.username);
         this.login();
       }
     });

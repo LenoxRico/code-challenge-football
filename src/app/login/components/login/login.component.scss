@@ -1,7 +1,15 @@
-.main-login{
-  background: url('../../../../assets/login.jpg') center center;
+.main-login {
+  background: url("../../../../assets/login.jpg") center center;
+  background-size: cover;
   height: 100vh;
   width: 100vw;
+  position: relative;
+  .layout {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+  }
 }
 .container-login {
   width: 50%;
@@ -14,5 +22,11 @@
   }
   &__input {
     width: 100%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container-login {
+    min-width: 80%;
   }
 }

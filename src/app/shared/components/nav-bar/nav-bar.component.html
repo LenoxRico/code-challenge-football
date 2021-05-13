@@ -7,22 +7,9 @@
       routerLinkActive="router-link-active"
     >
       <mat-icon>format_list_bulleted</mat-icon>
-      {{ "shared.nav-bar.list" | translate }}
-    </button>
-
-    <!-- <button mat-button [routerLink]="['/favorite']">
-      <mat-icon>favorite</mat-icon>
-      {{ "shared.nav-bar.favs" | translate }}
-    </button>
-
-    <button mat-button [routerLink]="['/profile']">
-      <mat-icon>person</mat-icon>
-      {{ "shared.nav-bar.profile" | translate }}
-    </button> -->
-
-    <button mat-button (click)="logout()">
-      <mat-icon>exit_to_app</mat-icon>
-      {{ "shared.nav-bar.log-out" | translate }}
+      <span class="hide">
+        {{ "shared.nav-bar.list" | translate }}
+      </span>
     </button>
 
     <mat-form-field
@@ -39,5 +26,12 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+
+    <button mat-button (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span class="hide">
+        {{ "shared.nav-bar.log-out" | translate }}
+      </span>
+    </button>
   </div>
 </div>

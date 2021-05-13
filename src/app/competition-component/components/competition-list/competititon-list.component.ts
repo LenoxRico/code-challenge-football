@@ -1,26 +1,56 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import {
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+  MomentDateAdapter,
+} from '@angular/material-moment-adapter';
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+} from '@angular/material/core';
+import { MatDatepicker } from '@angular/material/datepicker';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from '@src/app/shared/services';
-import { Cookie } from 'ng2-cookies';
-import { Observable } from 'rxjs';
-
-import { Competition } from '../../interfaces';
+import * as _moment from 'moment';
+import { Moment } from 'moment';
 import { CompetitionService } from '../../services';
-import { CompetitionModalComponent } from '../competition-modal';
+
+const moment = _moment;
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'YYYY',
+  },
+  display: {
+    dateInput: 'YYYY',
+    dateA11yLabel: 'LL',
+  },
+};
 
 @Component({
   selector: 'app-competition-list',
   templateUrl: './competition-list.component.html',
   styleUrls: ['./competition-list.component.scss'],
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+  ],
 })
 export class CompetitionListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'countryCode'];
+  displayedColumns: string[] = ['name', 'countryCode', 'plan'];
   dataSource: any;
   public pageSize = 5;
   public currentPage = 0;
   src = 'assets/icon.png';
+  date = new FormControl(moment());
+  isFiltered = '';
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
@@ -33,8 +63,13 @@ export class CompetitionListComponent implements OnInit {
     this.getCompetitions();
   }
 
-  getCompetitions(filter = '', limit = this.pageSize, offset = this.currentPage) {
+  getCompetitions(
+    filter = '',
+    limit = this.pageSize,
+    offset = this.currentPage
+  ) {
     this._coreServices.displaySpinner(true);
+    this.isFiltered = filter ? filter : '';
     this._competitionService
       .getCompetitions(filter, limit, offset)
       .subscribe((response: any) => {
@@ -46,30 +81,6 @@ export class CompetitionListComponent implements OnInit {
       });
   }
 
-  validateFavStatus(competition) {
-    const favorite = window.sessionStorage.getItem('favorite-competitions');
-    return favorite && favorite.includes(competition)
-      ? 'favorite'
-      : 'remove_circle';
-  }
-
-  addFavorite(competition) {
-    const favorite = window.sessionStorage.getItem('favorite-competitions');
-    if (favorite) {
-      if (favorite.includes(competition)) {
-        const removeCompetition = favorite.replace(competition, '');
-        window.sessionStorage.setItem('favorite-competitions', removeCompetition);
-      } else {
-        window.sessionStorage.setItem(
-          'favorite-competitions',
-          `${favorite},${competition}`
-        );
-      }
-    } else {
-      window.sessionStorage.setItem('favorite-competitions', competition);
-    }
-  }
-
   public handlePage(e: any) {
     this.currentPage = e.pageIndex;
     this.pageSize = e.pageSize;
@@ -79,16 +90,14 @@ export class CompetitionListComponent implements OnInit {
   private iterator() {
     const end = (this.currentPage + 1) * this.pageSize;
     const start = this.currentPage * this.pageSize;
-    this.getCompetitions('', end, start);
+    // this.getCompetitions('', end, start);
   }
 
-  openDialog(competition: Competition): void {
-    const dialogRef = this.dialog.open(CompetitionModalComponent, {
-      width: '700px',
-      data: {
-        competition,
-      },
-    });
-    dialogRef.afterClosed().subscribe((_) => {});
+  chosenYearHandler(normalizedYear: Moment, datepicker: MatDatepicker<Moment>) {
+    const ctrlValue = this.date.value;
+    ctrlValue.year(normalizedYear.year());
+    this.date.setValue(ctrlValue);
+    datepicker.close();
+    this.getCompetitions(this.date.value.format('YYYY'));
   }
 }
