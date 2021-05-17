@@ -10,7 +10,6 @@ import {
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
 import { MatDatepicker } from '@angular/material/datepicker';
-import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from '@src/app/shared/services';
@@ -54,7 +53,6 @@ export class CompetitionListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
-    private dialog: MatDialog,
     private _competitionService: CompetitionService,
     private _coreServices: CoreService
   ) {}

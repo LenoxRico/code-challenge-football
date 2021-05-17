@@ -45,7 +45,6 @@ export class CompetitionDetailComponent implements OnInit {
   }
 
   openDialog(competition: Competition): void {
-    console.log(competition);
     const dialogRef = this.dialog.open(CompetitionModalTeamComponent, {
       width: '700px',
       data: {

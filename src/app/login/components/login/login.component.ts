@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreService, NotificationService } from '@src/app/shared/services';
 import { Cookie } from 'ng2-cookies';
-
 import { AuthService } from '../../services';
 
 @Component({
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.itemForm = new FormGroup({
       userName: new FormControl('', [
         Validators.required,
-        Validators.minLength(5),
+        Validators.minLength(3),
       ]),
       // password: new FormControl('', Validators.required),
     });
@@ -55,7 +54,7 @@ export class LoginComponent implements OnInit {
     if (this.itemForm.valid) {
       const login = Object.assign({}, this.itemForm.value);
       this._authService.obtainAccessToken(login).subscribe(
-        (data) => {
+        (_) => {
           this._coreServices.displaySpinner(false);
           this._translate
             .get(`shared.notification.success-login`)
@@ -63,7 +62,7 @@ export class LoginComponent implements OnInit {
               this._notificationService.showNotification(text, true);
             });
           this.prepareForm();
-          this._authService.saveToken(data);
+          this._authService.saveToken(login.userName);
         },
         (err) => {
           this._coreServices.displaySpinner(false);

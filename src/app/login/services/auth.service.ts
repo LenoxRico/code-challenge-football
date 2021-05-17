@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cookie } from 'ng2-cookies';
@@ -7,12 +6,12 @@ import { of, throwError } from 'rxjs';
 @Injectable()
 export class AuthService {
   private validUsers: Array<string>;
-  constructor(private _router: Router, private _http: HttpClient) {
+  constructor(private _router: Router) {
     this.validUsers = ['admin', 'test'];
   }
 
   obtainAccessToken(loginData) {
-    const isValid = this.validUsers.find((user) => user === loginData.userName);
+    const isValid = this.validUsers.some((user) => user === loginData.userName);
     return isValid ? of(isValid) : throwError('error-login');
   }
 
@@ -28,7 +27,6 @@ export class AuthService {
 
   logout() {
     Cookie.delete('access_token');
-    window.sessionStorage.removeItem('favorite-competitions');
     this._router.navigate(['/login']);
   }
 }
