@@ -31,13 +31,13 @@ describe('AuthService', () => {
   it('should call saveToken', () => {
     const redirect = ['/competition-list'];
     spyOn(_router, 'navigate').and.callThrough();
-    service.saveToken('Test');
+    service.saveToken('admin');
     expect(_router.navigate).toHaveBeenCalledWith(redirect);
   });
 
   it('should call checkCredentials as true', () => {
     const expireDate = new Date().getTime() + 1000 * 3600;
-    Cookie.set('access_token', 'Test', expireDate);
+    Cookie.set('access_token', 'admin', expireDate);
     const getAccess = service.checkCredentials();
     expect(getAccess).toBeTrue();
   });

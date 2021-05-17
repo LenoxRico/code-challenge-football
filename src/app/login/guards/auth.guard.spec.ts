@@ -27,7 +27,7 @@ describe('AuthGuard', () => {
   it('should call canActivate', () => {
     const redirect = ['/login'];
     spyOn(_router, 'navigate').and.callThrough();
-    spyOn(_authService, 'checkCredentials').and.callThrough();
+    spyOn(_authService, 'checkCredentials').and.returnValue(false);
     service.canActivate();
     expect(_router.navigate).toHaveBeenCalledWith(redirect);
     expect(_authService.checkCredentials).toHaveBeenCalled();
