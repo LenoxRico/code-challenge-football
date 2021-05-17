@@ -1,6 +1,24 @@
 .competition-card {
   height: calc(100% - 100px);
 }
+.head-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    padding: 5px 10px;
+    margin-top: 20px;
+    background: #2e6ead;
+    color: #fff;
+    border: 1px solid #2e6ead;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background: #fff;
+      color: #2e6ead;
+    }
+  }
+}
 .container-list {
   min-width: 80%;
   .header {

@@ -26,7 +26,7 @@ export class ErrorIntercept implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse | any) => {
-        const errorMessage = error?.message;
+        let errorMessage = error?.message;
         switch (error.status) {
           case 404:
             this._router.navigate(['/not-found']);
@@ -36,6 +36,8 @@ export class ErrorIntercept implements HttpInterceptor {
             break;
           case 403:
             this._router.navigate(['/competition-list']);
+            errorMessage =
+              'This resource was not available due API restrictions';
             break;
           default:
             break;

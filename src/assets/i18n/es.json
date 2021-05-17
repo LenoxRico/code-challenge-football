@@ -10,7 +10,8 @@
       "title": "Lista de Competencias",
       "table-header-name": "Nombre",
       "table-header-location": "Ubicación",
-      "year": "Seleccione el año de la temporada"
+      "year": "Seleccione el año de la temporada",
+      "example": "Ejemplo del Detalle de Competencia"
     },
     "competition-detail": {
       "title": "Detalle de Competencia",

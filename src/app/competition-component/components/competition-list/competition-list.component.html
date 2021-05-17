@@ -13,20 +13,33 @@
         <ng-container *ngIf="isFiltered"> - {{ isFiltered }} </ng-container>
       </h2>
     </div>
-    <mat-form-field appearance="fill">
-      <mat-label>{{
-        "competition-component.competition-list.year" | translate
-      }}</mat-label>
-      <input matInput [matDatepicker]="dp" [formControl]="date" />
-      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-      <mat-datepicker
-        #dp
-        startView="multi-year"
-        (yearSelected)="chosenYearHandler($event, dp)"
-        panelClass="year-picker"
+    <div class="head-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>{{
+          "competition-component.competition-list.year" | translate
+        }}</mat-label>
+        <input matInput [matDatepicker]="dp" [formControl]="date" />
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker
+          #dp
+          startView="multi-year"
+          (yearSelected)="chosenYearHandler($event, dp)"
+          panelClass="year-picker"
+        >
+        </mat-datepicker>
+      </mat-form-field>
+      <button
+        mat-button
+        [routerLink]="['details', 2003]"
+        routerLinkActive="active"
       >
-      </mat-datepicker>
-    </mat-form-field>
+        <span>
+          {{
+            "competition-component.competition-list.example" | translate
+          }}</span
+        >
+      </button>
+    </div>
     <mat-card-content
       class="competition-container"
       fxLayout="column"

@@ -10,7 +10,8 @@
       "title": "Competition List",
       "table-header-name": "Name",
       "table-header-location": "Location",
-      "year": "Choose Season Year"
+      "year": "Choose Season Year",
+      "example": "Competition Detail Example"
     },
     "competition-detail": {
       "title": "Competition Detail",
